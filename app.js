@@ -64,7 +64,6 @@ class DrumKit {
     }
   }
   changeSound(e) {
-    //console.log(e.target.value);
     const selectionName = e.target.name;
     const selectionValue = e.target.value;
     switch (selectionName) {
@@ -80,7 +79,6 @@ class DrumKit {
     }
   }
   muteSound(e) {
-    //console.log(e);
     const selectedBtn = e.target.getAttribute('data-track');
     e.target.classList.toggle('active');
     if (e.target.classList.contains('active')) {
@@ -110,9 +108,8 @@ class DrumKit {
     }
   }
   changeTempo(e) {
-    //console.log(e);
     const tempoText = document.querySelector('.tempo-number');
-    tempoText.innerText = this.bpm;
+    tempoText.innerText = e.target.value;
   }
   updateTempo(e) {
     this.bpm = e.target.value;
@@ -155,10 +152,6 @@ drumKit.muteBtns.forEach((btn) => {
 drumKit.tempoSlider.addEventListener('input', function (e) {
   drumKit.changeTempo(e);
 });
-
-// drumKit.tempoSlider.addEventListener('change', function (e) {
-//   drumKit.changeTempo(e);
-// });
 
 drumKit.tempoSlider.addEventListener('change', function (e) {
   drumKit.updateTempo(e);
